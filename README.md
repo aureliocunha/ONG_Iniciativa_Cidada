@@ -51,7 +51,7 @@ O site busca inspirar empatia, promover a mobilização social e facilitar o ace
 
 O site está disponível publicamente através do **GitHub Pages**:
 
-👉 [Acesse o site da ONG Iniciativa Cidadã](https://seuusuario.github.io/ONG_Iniciativa_Cidada/)
+👉 [Acesse o site da ONG Iniciativa Cidadã](https://github.com/aureliocunha/ONG_Iniciativa_Cidada.git)
 
 > *(substitua o link acima pelo endereço real do seu repositório assim que ativar o GitHub Pages).*
 
