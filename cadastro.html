@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Voluntário | Iniciativa Cidadã</title>
+</head>
+<body>
+    <header>
+        <h1>Junte-se a Nós: Cadastro de Voluntário</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="projetos.html">Nossos Projetos</a></li>
+                <li><a href="cadastro.html">Seja Voluntário</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="formulario-voluntario">
+            <h2>Preencha Seus Dados para Fazer a Diferença</h2>
+            
+            <figure>
+                <img src="imagens/horizonte-esperanca.jpg" alt="Pessoa olhando para um horizonte ensolarado, simbolizando esperança e futuro." width="600" height="250">
+                <figcaption>Seu voluntariado é o farol que guia o futuro de alguém.</figcaption>
+            </figure>
+
+            <p>Seja bem-vindo(a)! Seus dados serão usados para combinarmos a melhor oportunidade de voluntariado com seu perfil e disponibilidade.</p>
+            
+            <form action="/processar-cadastro" method="POST">
+                
+                <fieldset>
+                    <legend>Dados Pessoais</legend>
+                    
+                    <label for="nome-completo">Nome Completo</label>
+                    <input type="text" id="nome-completo" name="nome-completo" placeholder="Seu nome completo" required>
+                    
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
+                    
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" name="cpf" 
+                           pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" 
+                           title="CPF no formato 000.000.000-00" 
+                           placeholder="000.000.000-00" 
+                           required>
+
+                    <label for="data-nascimento">Data de Nascimento</label>
+                    <input type="date" id="data-nascimento" name="data-nascimento" required>
+                    
+                    <label for="telefone">Telefone (Celular)</label>
+                    <input type="tel" id="telefone" name="telefone" 
+                           pattern="\(\d{2}\) ?\d{4,5}-?\d{4}" 
+                           title="Telefone no formato (XX) 9XXXX-XXXX ou (XX) XXXX-XXXX"
+                           placeholder="(99) 99999-9999"
+                           required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Dados de Endereço</legend>
+                    
+                    <label for="cep">CEP</label>
+                    <input type="text" id="cep" name="cep" 
+                           pattern="\d{5}-?\d{3}" 
+                           title="CEP no formato 00000-000"
+                           placeholder="00000-000"
+                           required>
+
+                    <label for="endereco">Endereço Completo</label>
+                    <input type="text" id="endereco" name="endereco" placeholder="Rua, número e complemento" required>
+
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" name="cidade" required>
+                    
+                    <label for="estado">Estado</label>
+                    <input type="text" id="estado" name="estado" maxlength="2" placeholder="Ex: SP" required>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Áreas de Interesse (Voluntariado)</legend>
+                    <p>Em qual de nossas 5 Ações Fundamentais você gostaria de atuar?</p>
+                    <input type="checkbox" id="acao1" name="interesse" value="Habitacao">
+                    <label for="acao1">Habitação Primeiro</label><br>
+                    
+                    <input type="checkbox" id="acao2" name="interesse" value="Qualificacao">
+                    <label for="acao2">Reinserção Produtiva e Qualificação</label><br>
+                    
+                    <input type="checkbox" id="acao3" name="interesse" value="Documentacao">
+                    <label for="acao3">Documentação Civil</label><br>
+                    
+                    <input type="checkbox" id="acao4" name="interesse" value="Saude">
+                    <label for="acao4">Saúde Mental e Integral</label><br>
+
+                    <input type="checkbox" id="acao5" name="interesse" value="Convivencia">
+                    <label for="acao5">Espaços de Convivência e Vínculos</label>
+                </fieldset>
+
+                <input type="submit" value="Finalizar Cadastro">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Aguardamos seu contato para iniciarmos essa parceria.</p>
+    </footer>
+</body>
+</html>
