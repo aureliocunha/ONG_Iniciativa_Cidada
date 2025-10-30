@@ -1,0 +1,359 @@
+/* style.css - Usando CSS3, Flexbox, Transições e Cores Escuras */
+
+/* --- Reset Básico e Variáveis de Cores --- */
+:root {
+    --cor-primaria: #007bff;        /* Azul Vibrante */
+    --cor-secundaria: #28a745;      /* Verde para Ação/Sucesso */
+    --cor-neutra-escura: #1f2327;   /* Fundo Principal (Corpo/Header) */
+    --cor-neutra-clara: #343a40;    /* Fundo das Seções/Cards */
+    --cor-texto-claro: #f8f9fa;     /* Texto para Fundos Escuros */
+    --cor-destaque: #ffc107;        /* Amarelo para Destaque/Atenção */
+    --cor-fundo-card-claro: #495057;/* Fundo para elementos internos (inputs/cards) */
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-dark: 0 8px 25px rgba(0, 0, 0, 0.7);
+}
+
+/* --- Reset Global --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--cor-texto-claro);
+    background-color: var(--cor-neutra-escura);
+    transition: background-color 0.5s;
+}
+
+a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--cor-destaque);
+    text-decoration: underline;
+}
+
+/* --- Cabeçalho (Header) e Navegação Flexbox --- */
+header {
+    background-color: var(--cor-neutra-escura);
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: var(--shadow-dark);
+    position: sticky; /* CSS3: Permite que o menu fique fixo ao rolar */
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--cor-destaque);
+    margin-bottom: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* CSS3: Espaçamento entre itens */
+    padding: 0.5rem 0;
+}
+
+nav ul li a {
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: var(--cor-primaria);
+    color: white;
+    text-decoration: none;
+}
+
+/* --- Main Content e Estrutura --- */
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+section {
+    background-color: var(--cor-neutra-clara);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-3px); /* CSS3: Efeito de levantamento ao passar o mouse */
+}
+
+h2 {
+    font-size: 2.2rem;
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 3px solid var(--cor-destaque);
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.6rem;
+    color: var(--cor-secundaria);
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+/* --- Estilos de Imagem e Figura --- */
+figure {
+    margin: 25px 0;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px; /* CSS3: Bordas arredondadas */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+figcaption {
+    margin-top: 10px;
+    font-style: italic;
+    color: #bbb;
+    font-size: 0.9rem;
+}
+
+/* --- Áreas Específicas (Index.html) --- */
+
+/* Banner Principal */
+#institucional {
+    background: linear-gradient(rgba(0, 123, 255, 0.85), rgba(0, 123, 255, 0.75)), 
+                url('imagens/aperto-de-maos.jpg') no-repeat center center/cover; /* CSS3: Fundo com Gradiente e Imagem */
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    padding: 80px 30px;
+}
+
+#institucional h2 {
+    color: white;
+    font-size: 3rem;
+    border-bottom: none;
+}
+
+/* MVV Flexbox */
+#mvv {
+    background-color: var(--cor-neutra-escura);
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+    box-shadow: none;
+    transform: none;
+}
+
+#mvv article {
+    flex: 1;
+    background-color: var(--cor-neutra-clara);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    border-top: 5px solid var(--cor-secundaria);
+}
+
+#mvv h4 {
+    color: var(--cor-destaque);
+    margin-bottom: 10px;
+}
+
+/* Equipe */
+.equipe-membros {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.equipe-membros img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* CSS3: Forma circular */
+    object-fit: cover;
+    border: 5px solid var(--cor-primaria);
+    transition: transform 0.5s;
+}
+
+.equipe-membros img:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+
+/* --- Projetos (projetos.html) --- */
+#projetos-detalhados article {
+    border-left: 6px solid var(--cor-secundaria);
+    margin-bottom: 40px;
+    padding-left: 20px;
+    background-color: var(--cor-fundo-card-claro);
+    color: var(--cor-texto-claro);
+}
+
+.impacto {
+    background-color: #3e5d48; 
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 20px;
+    font-style: italic;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Captação (Banner/Doações) */
+#doacoes {
+    background: linear-gradient(rgba(40, 167, 69, 0.85), rgba(40, 167, 69, 0.75)),
+                url('https://via.placeholder.com/1200x400/28a745/ffffff?text=Faca+a+Diferenca') no-repeat center center/cover;
+    color: white;
+    padding: 60px 30px;
+}
+
+#doacoes h2 {
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+#doacoes button {
+    background-color: var(--cor-destaque);
+    color: var(--cor-neutra-escura);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px; /* CSS3: Botão Pill */
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#doacoes button:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+/* --- Formulário (cadastro.html) --- */
+form {
+    background-color: var(--cor-neutra-clara);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+}
+
+fieldset {
+    border: 2px solid var(--cor-primaria);
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+legend {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--cor-destaque);
+    padding: 0 15px;
+    background-color: var(--cor-neutra-clara);
+    border-radius: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #6c757d;
+    border-radius: 5px;
+    background-color: var(--cor-fundo-card-claro);
+    color: var(--cor-texto-claro);
+    font-size: 1rem;
+    margin-top: 5px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* CSS3: Sombra de foco */
+    outline: none;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* --- Rodapé (Footer) --- */
+footer {
+    background-color: var(--cor-neutra-escura);
+    color: var(--cor-texto-claro);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    border-top: 1px solid #444;
+}
+
+
+/* --- Media Queries (Responsividade CSS3) --- */
+@media (max-width: 992px) {
+    main {
+        padding: 0 10px;
+    }
+    #institucional {
+        padding: 50px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    nav ul {
+        flex-wrap: wrap; /* Navegação vertical em telas pequenas */
+        gap: 10px;
+    }
+    #mvv {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+    section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    input[type="submit"] {
+        font-size: 1rem;
+    }
+}
