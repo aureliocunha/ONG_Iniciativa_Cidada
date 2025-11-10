@@ -1,0 +1,470 @@
+/* ========================================================= */
+/* ARQUIVO: style-design-system.css                          */
+/* ESPECIFICAÇÕES: Design System, CSS Grid, Flexbox, CSS3    */
+/* ========================================================= */
+
+/* --- 1. Sistema de Design: Variáveis CSS Customizadas --- */
+
+:root {
+    /* 1.1 PALETA DE CORES (Mínimo 8 Cores) */
+    --color-primary: #007bff;        /* Azul Vibrante (Ação) */
+    --color-secondary: #28a745;      /* Verde (Sucesso, Impacto) */
+    --color-accent: #ffc107;         /* Amarelo (Destaque, Atenção) */
+    --color-info: #17a2b8;           /* Ciano (Informação) */
+
+    --color-dark-bg: #1a1e21;        /* Fundo Principal Escuro */
+    --color-card-bg: #2d3439;        /* Fundo de Cards/Seções */
+    --color-input-bg: #495057;       /* Fundo de Inputs */
+    --color-text: #f8f9fa;           /* Texto Principal Claro */
+    --color-subtle-text: #adb5bd;    /* Texto Secundário/Sutil */
+    --color-error: #dc3545;          /* Erro/Validação Negativa */
+
+    /* 1.2 TIPOGRAFIA HIERÁRQUICA (Mínimo 5 Tamanhos) */
+    --font-family-base: 'Roboto', 'Arial', sans-serif;
+    --font-size-base: 1rem; /* 16px */
+    
+    --font-h1: 3.052rem;
+    --font-h2: 2.441rem;
+    --font-h3: 1.953rem;
+    --font-h4: 1.563rem;
+    --font-h5: 1.25rem;
+    
+    /* 1.3 SISTEMA DE ESPAÇAMENTO MODULAR (Base 8px) */
+    --spacing-none: 0;
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 1.5rem;   /* 24px */
+    --spacing-lg: 2rem;     /* 32px */
+    --spacing-xl: 3rem;     /* 48px */
+    --spacing-xxl: 4rem;    /* 64px */
+    
+    /* 1.4 BREAKPOINTS RESPONSIVOS (Mínimo 5) */
+    --bp-mobile-s: 320px;
+    --bp-mobile-m: 480px;
+    --bp-tablet: 768px;
+    --bp-desktop: 1024px;
+    --bp-widescreen: 1440px;
+}
+
+/* --- Base Geral e Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-dark-bg);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+a:hover {
+    color: var(--color-accent);
+}
+
+/* --- Tipografia Aplicada --- */
+h1 { font-size: var(--font-h1); color: var(--color-primary); margin-bottom: var(--spacing-lg); }
+h2 { font-size: var(--font-h2); color: var(--color-secondary); margin-bottom: var(--spacing-md); }
+h3 { font-size: var(--font-h3); color: var(--color-text); margin-bottom: var(--spacing-sm); }
+h4 { font-size: var(--font-h4); color: var(--color-subtle-text); margin-bottom: var(--spacing-xs); }
+h5 { font-size: var(--font-h5); color: var(--color-accent); }
+
+/* --- Seções e Layout Interno --- */
+section {
+    background-color: var(--color-card-bg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--spacing-sm);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* --- 2. Leiautes Responsivos com Grid e Flexbox --- */
+
+/* 2.1 CSS GRID para Estrutura Geral (Leiaute Principal) */
+.page-wrapper {
+    display: grid;
+    /* Define 3 áreas principais: header, main e footer */
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    max-width: var(--bp-widescreen);
+    margin: 0 auto;
+}
+header { grid-area: header; }
+main { 
+    grid-area: main; 
+    padding: 0 var(--spacing-md);
+}
+footer { grid-area: footer; }
+
+
+/* 2.2 Sistema de Grid Customizado (12 Colunas - Aplicado dentro de um container) */
+.grid-12-col {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+/* Classes utilitárias para o Grid (Ex: para usar em Projetos) */
+.col-span-4 { grid-column: span 4; } /* 3 colunas em desktop */
+.col-span-6 { grid-column: span 6; } /* 2 colunas em desktop */
+.col-span-12 { grid-column: span 12; } /* 1 coluna em desktop */
+
+
+/* 2.3 FLEXBOX para Componentes Internos e Alinhamentos */
+.flex-group {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    flex-wrap: wrap;
+}
+.justify-between { justify-content: space-between; }
+.align-start { align-items: flex-start; }
+
+
+/* --- 3. Navegação Sofisticada e Interativa --- */
+
+header {
+    background-color: var(--color-dark-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+nav ul li a {
+    color: var(--color-text);
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* Submenu Dropdown (Necessita de HTML aninhado: ul > li > ul) */
+nav ul li {
+    position: relative;
+}
+
+nav ul ul {
+    display: none; /* Esconde o submenu por padrão */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: var(--color-card-bg);
+    box-shadow: var(--shadow-light);
+    border-radius: 4px;
+    z-index: 100;
+    flex-direction: column;
+    padding: var(--spacing-xs) 0;
+    gap: 0;
+}
+
+/* Mostra o submenu ao passar o mouse */
+nav ul li:hover > ul {
+    display: flex;
+}
+
+nav ul ul li a {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    display: block; /* Ocupa toda a largura do dropdown */
+    width: 100%;
+    border-radius: 0;
+}
+
+
+/* 3.1 Menu Hambúrguer (Apenas o ícone CSS) */
+.menu-toggle {
+    display: none; /* Escondido em desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    background: var(--color-text);
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- 4. Componentes de Interface --- */
+
+/* 4.1 Botões com Estados Visuais */
+.btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+/* Estados */
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn:disabled {
+    background-color: var(--color-input-bg);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* 4.2 Sistema de Cards Responsivos para Projetos */
+.card {
+    background-color: var(--color-fundo-card-claro);
+    border-radius: var(--spacing-xs);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.card-body {
+    padding: var(--spacing-md);
+}
+
+.card-body h3 {
+    margin-top: 0;
+}
+
+/* 4.3 Formulários Estilizados com Validação Visual */
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    color: var(--color-subtle-text);
+}
+
+input:not([type="checkbox"]):not([type="radio"]), 
+select, 
+textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-input-bg);
+    border-radius: 4px;
+    background-color: var(--color-input-bg);
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Validação Visual Nativa (HTML5) */
+input:valid {
+    border-left: 5px solid var(--color-secondary);
+}
+
+input:invalid:not(:focus):not(:placeholder-shown) {
+    border-left: 5px solid var(--color-error);
+}
+
+.input-feedback {
+    display: none;
+    color: var(--color-error);
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+input:invalid:not(:focus):not(:placeholder-shown) ~ .input-feedback {
+    display: block;
+}
+
+
+/* 4.4 Sistema de Badges e Tags para Categorização */
+.badge {
+    display: inline-block;
+    padding: 0.3em 0.6em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    margin-right: var(--spacing-xs);
+}
+
+.badge-primary { background-color: var(--color-primary); color: white; }
+.badge-secondary { background-color: var(--color-secondary); color: white; }
+.badge-accent { background-color: var(--color-accent); color: var(--color-dark-bg); }
+.badge-info { background-color: var(--color-info); color: white; }
+
+/* 4.5 Componentes de Feedback (Alerts - Exemplo de Estrutura) */
+.alert {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    opacity: 0.95;
+}
+
+.alert-success { 
+    background-color: rgba(40, 167, 69, 0.2); 
+    border-color: var(--color-secondary); 
+    color: var(--color-secondary);
+}
+.alert-error {
+    background-color: rgba(220, 53, 69, 0.2);
+    border-color: var(--color-error);
+    color: var(--color-error);
+}
+
+
+/* --- 5. Breakpoints Responsivos (Media Queries) --- */
+
+/* Mobile Landscape & Pequenos Tablets (e.g., min-width: 480px) */
+@media (min-width: 480px) {
+    :root {
+        --font-h1: 2.8rem;
+    }
+    .grid-12-col {
+        grid-template-columns: repeat(6, 1fr); /* 2 colunas para cards/projetos */
+    }
+    .col-span-4, .col-span-6, .col-span-12 {
+        grid-column: span 6; /* Cards ocupam metade da tela */
+    }
+}
+
+/* Tablets (min-width: 768px) */
+@media (min-width: 768px) {
+    /* 3.1 Oculta Menu Hambúrguer em Tablet/Desktop */
+    .menu-toggle { display: none; }
+    nav ul { display: flex; } /* Navegação principal em linha */
+    
+    .grid-12-col {
+        grid-template-columns: repeat(12, 1fr); /* Retorna ao grid de 12 colunas */
+    }
+    /* Cards/Projetos: 3 por linha em tablet */
+    .col-span-4 { grid-column: span 4; }
+    .col-span-6 { grid-column: span 6; }
+    .col-span-12 { grid-column: span 12; }
+    
+    .page-wrapper {
+        padding: 0 var(--spacing-lg);
+    }
+}
+
+/* Desktops (min-width: 1024px) */
+@media (min-width: 1024px) {
+    :root {
+        --font-h1: 3.5rem;
+    }
+    /* Leiaute Específico: Página Principal com Sidebar (Conceito GRID) */
+    .layout-institutional {
+        grid-template-columns: 2fr 1fr; /* 2/3 Conteúdo, 1/3 Sidebar */
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Widescreen (min-width: 1440px) */
+@media (min-width: 1440px) {
+    .page-wrapper {
+        max-width: 1400px;
+    }
+}
+
+
+/* Mobile: Menu Hambúrguer (Requer Estrutura HTML/JS) */
+@media (max-width: 767px) {
+    .menu-toggle { 
+        display: flex; /* Mostra o ícone */
+        position: absolute;
+        right: var(--spacing-md);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    nav ul {
+        /* Esconde a navegação principal em mobile por padrão */
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--color-card-bg);
+        position: absolute;
+        left: 0;
+        top: 100%;
+        box-shadow: var(--shadow-dark);
+        padding: var(--spacing-sm);
+        gap: var(--spacing-xs);
+    }
+    nav ul li {
+        width: 100%;
+    }
+    nav ul li a {
+        display: block;
+        padding: var(--spacing-sm);
+        text-align: left;
+    }
+    /* Classe adicionada por JavaScript para mostrar o menu */
+    .nav-open ul {
+        display: flex; 
+    }
+}

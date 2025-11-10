@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciativa Cidadã | Inclusão Social de Rua</title>
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style-design-system.css"> 
 </head>
 <body>
     <header>
         <h1>Iniciativa Cidadã: Reconstruindo Laços e Vidas</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="projetos.html">Nossos Projetos</a></li>
-                <li><a href="cadastro.html">Seja Voluntário</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+   	<nav id="main-nav">
+    		<ul class="flex-group">
+        		<li><a href="/" data-route="/">Início</a></li>
+        		<li><a href="/projetos" data-route="/projetos">Nossos Projetos</a></li>
+        		<li><a href="/cadastro" data-route="/cadastro">Seja Voluntário</a></li>
+        		<li><a href="/doacao" data-route="/doacao">Doação</a></li> <li><a href="/contato" data-route="/contato">Contato</a></li>
+    		</ul>
+	</nav>
     </header>
 
-    <main>
+    <main id="app-root">
         <section id="institucional">
             <h2>Nossa Missão</h2>
             <p>
@@ -95,5 +95,6 @@
         </address>
         <small>&copy; 2025 Iniciativa Cidadã. Todos os direitos reservados.</small>
     </footer>
+<script src="app.js" defer></script>
 </body>
 </html>
